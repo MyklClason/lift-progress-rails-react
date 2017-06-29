@@ -1,24 +1,4 @@
-# README
+# ReactJS + RAils 5 Tutorial App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Source: https://www.youtube.com/watch?v=Xu1iULqbDvg&list=PLX-RIZuCBJBLZ7zhGqhxYMIz_c18jLnka
+Tutorial Author: Daniel Paul Grech Pereira
