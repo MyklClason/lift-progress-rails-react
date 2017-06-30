@@ -27,6 +27,7 @@ class LiftForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.valid = this.valid.bind(this);
     this.calculateOnerm = this.calculateOnerm.bind(this);
+    this.toggleUnit = this.toggleUnit.bind(this);
   }
 
   calculateOnerm() {
@@ -39,11 +40,16 @@ class LiftForm extends React.Component {
   }
 
   handleValueChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  toggleUnit(e) {
+    e.preventDefault()
+    this.setState({ ismetric: !this.state.ismetric })
   }
 
   valid() {
-    this.state.date && this.state.liftname && this.state.ismetric && this.state.weightlifted
+    this.state.date && this.state.liftname && this.state.weightlifted
                     && this.state.repsperformed && this.state.onerm
   }
 
@@ -64,14 +70,15 @@ class LiftForm extends React.Component {
                  name='date' value={this.state.date} onChange={this.handleValueChange} />
           <input type='text' className='form-control' placeholder='liftname'
                  name='liftname' value={this.state.liftname} onChange={this.handleValueChange} />
-          <input type='boolean' className='form-control' placeholder='ismetric'
-                 name='ismetric' value={this.state.ismetric} onChange={this.handleValueChange} />
+          <a className='btn btn-primary' onClick={this.toggleUnit}>
+            Metric = {this.state.ismetric.toString()}
+          </a>
           <input type='text' className='form-control' placeholder='weightlifted'
                  name='weightlifted' value={this.state.weightlifted} onChange={this.handleValueChange} />
           <input type='text' className='form-control' placeholder='repsperformed'
                  name='repsperformed' value={this.state.repsperformed} onChange={this.handleValueChange} />
           <button type='submit' className='btn btn-primary' disabled={!this.valid}>Create Lift</button>
-          <OnermBox onerm={calculateOnerm}>
+          <OnermBox onerm={this.calculateOnerm} />
 
         </div>
       </form>
