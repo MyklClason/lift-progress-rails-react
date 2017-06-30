@@ -13,6 +13,12 @@ class LiftsController < ApplicationController
     end
   end
 
+  def destroy
+    @lift = Lift.find(params[:id])
+    @lift.destroy
+    head :no_content
+  end
+
   private
 
     def lift_params
