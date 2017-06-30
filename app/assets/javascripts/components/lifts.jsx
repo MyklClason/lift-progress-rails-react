@@ -32,7 +32,7 @@ class Lifts extends React.Component {
           </thead>
           <tbody>
             {this.state.lifts.map((lift, i) =>
-              <Lift lift={lift}/>
+              <Lift key={lift.id} lift={lift}/>
             )}
           </tbody>
         </table>
