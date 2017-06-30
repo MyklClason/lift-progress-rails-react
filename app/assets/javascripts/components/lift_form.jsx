@@ -1,6 +1,18 @@
 class LiftForm extends React.Component {
   constructor(props) {
     super(props);
+    this.coefficents = {
+      1:  1.0,
+      2:  0.943,
+      3:  0.906,
+      4:  0.881,
+      5:  0.851,
+      6:  0.831,
+      7:  0.807,
+      8:  0.786,
+      9:  0.765,
+      10: 0.744,
+    }
     this.defaultState = {
       date: '',
       liftname: '',
@@ -8,18 +20,6 @@ class LiftForm extends React.Component {
       ismetric: '',
       repsperformed: '',
       onerm: '',
-      coefficents: {
-        1:  1.0,
-        2:  0.943,
-        3:  0.906,
-        4:  0.881,
-        5:  0.851,
-        6:  0.831,
-        7:  0.807,
-        8:  0.786,
-        9:  0.765,
-        10: 0.744,
-      }
     }
     this.state = JSON.parse(JSON.stringify(this.defaultState)) // Deep copy via JSON
 
@@ -33,7 +33,7 @@ class LiftForm extends React.Component {
   calculateOnerm() {
     console.log(this.state)
     if (this.state.weightlifted && this.state.repsperformed) {
-      return this.state.onerm = this.state.weightlifted / this.state.coefficents[this.state.repsperformed]
+      return this.state.onerm = this.state.weightlifted / this.coefficents[this.state.repsperformed]
     }
     else {
       return 0
