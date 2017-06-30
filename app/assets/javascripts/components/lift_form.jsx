@@ -8,12 +8,34 @@ class LiftForm extends React.Component {
       ismetric: '',
       repsperformed: '',
       onerm: '',
+      coefficents: {
+        1:  1.0,
+        2:  0.943,
+        3:  0.906,
+        4:  0.881,
+        5:  0.851,
+        6:  0.831,
+        7:  0.807,
+        8:  0.786,
+        9:  0.765,
+        10: 0.744,
+      }
     }
     this.state = JSON.parse(JSON.stringify(this.defaultState)) // Deep copy via JSON
 
     this.handleValueChange = this.handleValueChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.valid = this.valid.bind(this);
+    this.calculateOnerm = this.calculateOnerm.bind(this);
+  }
+
+  calculateOnerm() {
+    if (this.state.weightlifted && this.state.repsperformed) {
+      this.state.onerm = this.state.weightlifted / this.state.coefficents[this.state.repsperformed]
+    }
+    else {
+      0
+    }
   }
 
   handleValueChange(e) {
@@ -51,7 +73,7 @@ class LiftForm extends React.Component {
           <input type='text' className='form-control' placeholder='onerm'
                  name='onerm' value={this.state.onerm} onChange={this.handleValueChange} />
           <button type='submit' className='btn btn-primary' disabled={!this.valid}>Create Lift</button>
-
+          <OnermBox onerm={calculateOnerm}>
 
         </div>
       </form>
