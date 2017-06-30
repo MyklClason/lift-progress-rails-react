@@ -70,8 +70,6 @@ class LiftForm extends React.Component {
                  name='weightlifted' value={this.state.weightlifted} onChange={this.handleValueChange} />
           <input type='text' className='form-control' placeholder='repsperformed'
                  name='repsperformed' value={this.state.repsperformed} onChange={this.handleValueChange} />
-          <input type='text' className='form-control' placeholder='onerm'
-                 name='onerm' value={this.state.onerm} onChange={this.handleValueChange} />
           <button type='submit' className='btn btn-primary' disabled={!this.valid}>Create Lift</button>
           <OnermBox onerm={calculateOnerm}>
 
