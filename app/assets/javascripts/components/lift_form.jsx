@@ -31,11 +31,12 @@ class LiftForm extends React.Component {
   }
 
   calculateOnerm() {
+    console.log(this.state)
     if (this.state.weightlifted && this.state.repsperformed) {
-      this.state.onerm = this.state.weightlifted / this.state.coefficents[this.state.repsperformed]
+      return this.state.onerm = this.state.weightlifted / this.state.coefficents[this.state.repsperformed]
     }
     else {
-      0
+      return 0
     }
   }
 
@@ -79,7 +80,7 @@ class LiftForm extends React.Component {
                  min='1' max='10'
                  name='repsperformed' value={this.state.repsperformed} onChange={this.handleValueChange} />
           <button type='submit' className='btn btn-primary' disabled={!this.valid}>Create Lift</button>
-          <OnermBox onerm={this.calculateOnerm} />
+          <OnermBox onerm={this.calculateOnerm()} />
 
         </div>
       </form>
