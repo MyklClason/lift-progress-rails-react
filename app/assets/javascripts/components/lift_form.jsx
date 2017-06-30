@@ -69,19 +69,28 @@ class LiftForm extends React.Component {
         <div className='form-group'>
           <input type='date' className='form-control' placeholder='date'
                  name='date' value={this.state.date} onChange={this.handleValueChange} />
+        </div>
+        <div className='form-group'>
           <input type='text' className='form-control' placeholder='liftname'
                  name='liftname' value={this.state.liftname} onChange={this.handleValueChange} />
+        </div>
+        <div className='form-group'>
           <a className='btn btn-primary' onClick={this.toggleUnit}>
             Metric = {this.state.ismetric.toString()}
           </a>
+        </div>
+        <div className='form-group'>
           <input type='text' className='form-control' placeholder='weightlifted'
                  name='weightlifted' value={this.state.weightlifted} onChange={this.handleValueChange} />
+        </div>
+        <div className='form-group'>
           <input type='text' className='form-control' placeholder='repsperformed'
                  min='1' max='10'
                  name='repsperformed' value={this.state.repsperformed} onChange={this.handleValueChange} />
+        </div>
+        <div className='form-group'>
           <button type='submit' className='btn btn-primary' disabled={!this.valid}>Create Lift</button>
           <OnermBox onerm={this.calculateOnerm()} />
-
         </div>
       </form>
     )
