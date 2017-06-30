@@ -1,17 +1,25 @@
 class Lifts extends React.Component {
   constructor(props) {
     super(props);
-    this.lifts = []
     this.state = {
       lifts: props.data
     };
-    console.log(props)
+
+    this.addLift = this.addLift.bind(this);
+  }
+
+  addLift(lift) {
+    this.lifts = this.state.lifts.slice();
+    this.lifts.push(lift)
+    this.setState({lifts: this.lifts})
   }
 
   render() {
     return (
       <div className='lifts'>
         <h1 className='title'>Lifts</h1>
+
+        <LiftForm handleNewLift={this.addLift.bind(this)}/>
         <table className='table table-bordered'>
           <thead>
             <tr>
